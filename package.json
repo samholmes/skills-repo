@@ -1,0 +1,25 @@
+{
+  "name": "skills-repo",
+  "version": "0.1.0",
+  "description": "Manage agent skills repositories with metadata-driven install targets.",
+  "type": "module",
+  "license": "MIT",
+  "packageManager": "bun@1.3.12",
+  "bin": {
+    "skills-repo": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "bun build src/cli.ts src/check-installed.ts src/discover-agents.ts src/install-local.ts src/list-local.ts src/prune-internal.ts src/sync-local.ts --target=bun --outdir=dist",
+    "prepack": "bun run build",
+    "check": "bun run build",
+    "test": "bun run build && bun dist/cli.js --help",
+    "agents": "bun src/cli.ts agents --explain"
+  },
+  "dependencies": {
+    "yaml": "^2.9.0"
+  }
+}
